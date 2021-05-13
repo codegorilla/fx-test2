@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane
+  xmlns:fx="http://javafx.com/fxml"
+  fx:controller="sample.MenubarController">
+  <MenuBar fx:id="menuBar">
+  <Menu text="File">
+    <MenuItem text="New" />
+    <MenuItem text="Open" />
+    <SeparatorMenuItem />
+    <MenuItem fx:id="miExit" text="Exit" onAction="#handleExit" />
+  </Menu>
+  <Menu text="Edit">
+    <MenuItem text="Copy" onAction="#handleCopy" />
+    <MenuItem text="Cut" />
+    <MenuItem text="Paste" />
+  </Menu>
+  <Menu text="View">
+    <MenuItem text="Fullscreen" />
+    <MenuItem text="Zoom In" onAction="#handleZoomIn" />
+    <MenuItem text="Zoom Out" onAction="#handleZoomOut" />
+  </Menu>
+  <Menu text="Help">
+    <MenuItem text="About" />
+  </Menu>
+  </MenuBar>
+</StackPane>

@@ -2,12 +2,8 @@ package sample;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-
+import javafx.scene.layout.BorderPane;
 import javafx.scene.Scene;
-import javafx.scene.Parent;
-import javafx.scene.control.Label;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import com.google.inject.Guice;
@@ -15,28 +11,33 @@ import com.google.inject.Injector;
 
 public class App extends Application {
 
+  private final int START_WIDTH  = 960;
+  private final int START_HEIGHT = 540;
+
+  private BorderPane root;
+
   @Override
-  public void start (Stage stage) throws Exception {
+  public void init () throws Exception {
+    System.out.println("Loading application...");
     String javaVersion = System.getProperty("java.version");
     String javafxVersion = System.getProperty("javafx.version");
-    //Label l = new Label("Hello, JavaFX " + javafxVersion + ", running on Java " + javaVersion + ".");
-    //Scene scene = new Scene(new StackPane(l), 640, 480);
-    Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
-    Scene scene = new Scene(root, 640, 480);
-    stage.setScene(scene);
+    var loader = new FXMLLoader(getClass().getResource("main.fxml"));
+    root = loader.load();
+  }
+
+  @Override
+  public void start (Stage stage) throws Exception {
+    stage.setTitle("Track Commander");
+    stage.setScene(new Scene(root, START_WIDTH, START_HEIGHT));
     stage.show();
 
-// This would go back into main.fxml but then we need a MainController class
-//    fx:controller="sample.MainController">
-
-    System.out.println("Squeeze me some guice!");
-    Injector injector = Guice.createInjector(new TextEditorModule());
-    TextEditor editor = injector.getInstance(TextEditor.class);
-    editor.makeSpellCheck();
+    // System.out.println("Squeeze me some guice!");
+    // Injector injector = Guice.createInjector(new TextEditorModule());
+    // TextEditor editor = injector.getInstance(TextEditor.class);
+    // editor.makeSpellCheck();
   }
 
   public static void main (String[] args) {
-    launch();
+    App.launch(args);
   }
-
 }

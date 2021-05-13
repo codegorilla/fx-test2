@@ -2,11 +2,18 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
-<StackPane
-    xmlns:fx="http://javafx.com/fxml"
-    prefHeight="400.0"
-    prefWidth="600.0">
-    <Label text="Hello universe!"/>
-</StackPane>
+<BorderPane
+  xmlns:fx="http://javafx.com/fxml"
+  fx:controller="sample.MainController"
+  prefWidth="960"
+  prefHeight="540">
+  <top>
+    <VBox fx:id="topv">
+      <fx:include fx:id="menubar" source="menubar.fxml" />
+    </VBox>
+  </top>
+  <center>
+    <fx:include fx:id="content" source="content.fxml" />
+  </center>
+</BorderPane>
