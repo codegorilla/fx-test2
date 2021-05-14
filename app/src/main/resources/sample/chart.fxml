@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import sample.CanvasPane?>
+
+<AnchorPane
+  xmlns:fx="http://javafx.com/fxml"
+  fx:controller="sample.ChartController"
+  fx:id="chart">
+  <CanvasPane fx:id="cPane" onMouseClicked="#handleClick"/>
+</AnchorPane>

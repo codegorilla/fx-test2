@@ -9,18 +9,23 @@ import javafx.stage.Stage;
 
 public class MenubarController {
 
-  @FXML private MenuBar menuBar;
-  @FXML private MenuItem miExit;
+  @FXML
+  private MenuBar menuBar;
+  
+  @FXML
+  private MenuItem miExit;
 
 //  MapPaneController mpc;
 //  ToolbarController tc;
 
-  @FXML private void initialize () {
+  @FXML
+  private void initialize () {
     System.out.println("Menubar loaded.");
   }
 
   @FXML
-  public void handleZoomIn (ActionEvent e) {
+  public
+  void handleZoomIn (ActionEvent e) {
 //    mpc.zoomIn();
   }
 
@@ -29,12 +34,14 @@ public class MenubarController {
 //    mpc.zoomOut();
   }
 
-  @FXML void handleCopy (ActionEvent e) {
+  @FXML
+  void handleCopy (ActionEvent e) {
     System.out.println("You have selected File -> Copy!");
 //    tc.testme();
   }
 
-  @FXML void handleExit (ActionEvent e) {
+  @FXML
+  void handleExit (ActionEvent e) {
     System.out.println("User wants to exit. Please delete your computer.");
     dispose();
     Stage stage = (Stage) menuBar.getScene().getWindow();

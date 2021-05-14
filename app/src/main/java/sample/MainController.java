@@ -21,7 +21,8 @@ public class MainController {
   //@FXML
   //private Button btnSubmit;
 
-  @FXML private void initialize () {
+  @FXML
+  private void initialize () {
     System.out.println("Main window loaded.");
     //sp.setResizableWithParent(vb, false);
     //sp.setDividerPositions(0.25);

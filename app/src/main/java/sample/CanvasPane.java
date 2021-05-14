@@ -1,19 +1,23 @@
 package sample;
 
 import javafx.scene.layout.Pane;
-import javafx.scene.canvas.Canvas;
 
 public class CanvasPane extends Pane {
 
-  private final Canvas canvas;
+  private final ResizableCanvas canvas;
 
-  public CanvasPane (double width, double height) {
-    canvas = new Canvas(width, height);
+  public CanvasPane () {
+    // In order to be used in FXML, the constructor cannot take any arguments
+    super();
+    canvas = new ResizableCanvas();
     getChildren().add(canvas);
+    // Alternative to overriding layoutChildren() method
+    //canvas.widthProperty().bind(this.widthProperty());
+    //canvas.heightProperty().bind(this.heightProperty());
   }
 
-  public Canvas getCanvas () {
-    return canvas;
+  public ResizableCanvas getCanvas () {
+   return canvas;
   }
 
   @Override
