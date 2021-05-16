@@ -7,7 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import com.google.inject.Guice;
-import com.google.inject.Injector;
+//import com.google.inject.Injector;
 
 public class App extends Application {
 
@@ -18,10 +18,12 @@ public class App extends Application {
 
   @Override
   public void init () throws Exception {
-    System.out.println("Loading application...");
-    String javaVersion = System.getProperty("java.version");
-    String javafxVersion = System.getProperty("javafx.version");
+    System.out.println("Initializing application...");
+    var javaVersion = System.getProperty("java.version");
+    var javafxVersion = System.getProperty("javafx.version");
+    var injector = Guice.createInjector(new GuiceModule());
     var loader = new FXMLLoader(getClass().getResource("main.fxml"));
+    loader.setControllerFactory(injector::getInstance);
     root = loader.load();
   }
 
@@ -32,7 +34,6 @@ public class App extends Application {
     stage.show();
 
     // System.out.println("Squeeze me some guice!");
-    // Injector injector = Guice.createInjector(new TextEditorModule());
     // TextEditor editor = injector.getInstance(TextEditor.class);
     // editor.makeSpellCheck();
   }

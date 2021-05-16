@@ -9,6 +9,8 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.paint.*;
 
+import javax.inject.Inject;
+
 public class ChartController {
 
   @FXML
@@ -16,6 +18,9 @@ public class ChartController {
 
   @FXML
   private CanvasPane cPane;
+
+  @Inject
+  private MainController mainController;
 
   @FXML
   private void initialize () {
@@ -35,5 +40,17 @@ public class ChartController {
     gc.fillRect(0,0,canvas.getWidth(),canvas.getHeight());
     gc.setFill(Color.BLACK);
     gc.fillRect(75,75,100,100);
+    mainController.getMenubar().testme();
   }
+
+  public void testnow () {
+    System.out.println("HERE IN TESTNOW! ***");
+    var canvas = cPane.getCanvas();
+    var gc = cPane.getCanvas().getGraphicsContext2D();
+    gc.setFill(Color.BLUE);
+    gc.fillRect(0,0,canvas.getWidth(),canvas.getHeight());
+    gc.setFill(Color.WHITE);
+    gc.fillRect(75,75,100,100);
+  }
+
 }

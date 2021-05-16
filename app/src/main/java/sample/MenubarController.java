@@ -7,6 +7,9 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 
+import javax.inject.Inject;
+
+
 public class MenubarController {
 
   @FXML
@@ -15,8 +18,8 @@ public class MenubarController {
   @FXML
   private MenuItem miExit;
 
-//  MapPaneController mpc;
-//  ToolbarController tc;
+  @Inject
+  private MainController mainController;
 
   @FXML
   private void initialize () {
@@ -37,6 +40,13 @@ public class MenubarController {
   @FXML
   void handleCopy (ActionEvent e) {
     System.out.println("You have selected File -> Copy!");
+    mainController.getChart().testnow();
+    
+    // Now we want to do some action on the canvas
+    // How to get a hold of the canvas?
+    // Only way seems to use the chart controller to register the canvas
+    // with some app context, then as the app context for the canvas
+    // Is another option dependency injection?
 //    tc.testme();
   }
 
@@ -67,4 +77,5 @@ public class MenubarController {
 //  void setMapPaneController (MapPaneController mpc) {
 //    this.mpc = mpc;
 //  }
+
 }
