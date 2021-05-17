@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.scene.layout.Pane;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.paint.*;
 
@@ -22,17 +23,22 @@ public class ResizableCanvas extends Canvas {
     heightProperty().addListener(evt -> draw());
   }
 
+  public void setSizeBinding (Pane pane) {
+    widthProperty().bind(pane.widthProperty());
+    heightProperty().bind(pane.heightProperty());
+  }
+
   private void draw () {
     System.out.println("Resized!");
     double width = getWidth();
     double height = getHeight();
 
-//    var gc = getGraphicsContext2D();
-//    gc.clearRect(0, 0, width, height);
+   var gc = getGraphicsContext2D();
+   gc.clearRect(0, 0, width, height);
 
-//    gc.setStroke(Color.RED);
-//    gc.strokeLine(0, 0, width, height);
-//    gc.strokeLine(0, height, width, 0);
+   gc.setStroke(Color.RED);
+   gc.strokeLine(0, 0, width, height);
+   gc.strokeLine(0, height, width, 0);
   }
 
   @Override

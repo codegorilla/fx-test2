@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.layout.AnchorPane?>
-<?import sample.CanvasPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.Region?>
+<?import sample.ResizableCanvas?>
 
 <AnchorPane
   xmlns:fx="http://javafx.com/fxml"
   fx:controller="sample.ChartController">
-  <CanvasPane
-    fx:id="cPane"
-    onMouseClicked="#handleClick"
-    onMouseMoved="#handleMove"/>
+  <Pane
+    fx:id="cPane">
+    <ResizableCanvas
+      fx:id="canvas"
+      onMouseClicked="#handleClick"
+      onMouseMoved="#handleMove"/>
+  </Pane>
 </AnchorPane>

@@ -51,7 +51,7 @@ public class ToolbarController {
 
   @FXML
   public void handleStartDraw (ActionEvent e) {
-    //mpc.startDraw();
+    mainController.getChartController().setDrawingMode(ChartController.ROUTE);
   }
 
   @FXML

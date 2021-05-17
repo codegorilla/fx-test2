@@ -40,7 +40,7 @@ public class MenubarController {
   @FXML
   void handleCopy (ActionEvent e) {
     System.out.println("You have selected File -> Copy!");
-    mainController.getChart().testnow();
+    mainController.getChartController().testnow();
     
     // Now we want to do some action on the canvas
     // How to get a hold of the canvas?
