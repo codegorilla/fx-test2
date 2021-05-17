@@ -27,12 +27,12 @@ public class ResizableCanvas extends Canvas {
     double width = getWidth();
     double height = getHeight();
 
-    var gc = getGraphicsContext2D();
-    gc.clearRect(0, 0, width, height);
+//    var gc = getGraphicsContext2D();
+//    gc.clearRect(0, 0, width, height);
 
-    gc.setStroke(Color.RED);
-    gc.strokeLine(0, 0, width, height);
-    gc.strokeLine(0, height, width, 0);
+//    gc.setStroke(Color.RED);
+//    gc.strokeLine(0, 0, width, height);
+//    gc.strokeLine(0, height, width, 0);
   }
 
   @Override

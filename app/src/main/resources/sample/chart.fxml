@@ -6,5 +6,8 @@
 <AnchorPane
   xmlns:fx="http://javafx.com/fxml"
   fx:controller="sample.ChartController">
-  <CanvasPane fx:id="cPane" onMouseClicked="#handleClick"/>
+  <CanvasPane
+    fx:id="cPane"
+    onMouseClicked="#handleClick"
+    onMouseMoved="#handleMove"/>
 </AnchorPane>

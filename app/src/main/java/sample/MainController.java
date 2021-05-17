@@ -1,5 +1,7 @@
 package sample;
 
+import com.google.inject.Inject;
+
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.geometry.Point2D;
@@ -12,27 +14,40 @@ import javafx.scene.control.TextArea;
 
 import javafx.scene.input.MouseEvent; 
 
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
-import com.google.inject.Inject;
-
 
 public class MainController {
 
   //@FXML
   //private Button btnSubmit;
 
-  @Inject
+  @FXML
+  private AnchorPane chart;
+
+  @FXML
   private ChartController chartController;
 
-  @Inject
+  @FXML
   private MenubarController menubarController;
+
+  @FXML
+  private ToolbarController toolbarController;
 
   @FXML
   private void initialize () {
     System.out.println("Main window loaded.");
+    if (chart == null)
+      System.out.println("AP IS NULL!!!");
+
+    var cPane = chart.getChildren().get(0);
+    chart.setTopAnchor(cPane, 0d);
+    chart.setLeftAnchor(cPane, 2d);
+    chart.setBottomAnchor(cPane, 0d);
+    chart.setRightAnchor(cPane, 2d);
+
 
     //sp.setResizableWithParent(vb, false);
     //sp.setDividerPositions(0.25);
@@ -48,6 +63,10 @@ public class MainController {
 
   public MenubarController getMenubar () {
     return menubarController;
+  }
+
+  public ToolbarController getToolbar () {
+    return toolbarController;
   }
 
   public ChartController getChart () {

@@ -1,13 +1,13 @@
 package sample;
 
+import javax.inject.Inject;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 
-import javax.inject.Inject;
 
 
 public class MenubarController {
