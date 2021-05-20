@@ -12,6 +12,8 @@ import javafx.scene.control.ToolBar;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import sample.state.InteractionManager;
+
 public class ToolbarController {
 
   @FXML
@@ -19,6 +21,9 @@ public class ToolbarController {
 
   @Inject
   private MainController mainController;
+
+  @Inject
+  private InteractionManager interactionManager;
 
   @FXML private void initialize () {
     System.out.println("Toolbar loaded.");
@@ -51,7 +56,7 @@ public class ToolbarController {
 
   @FXML
   public void handleStartDraw (ActionEvent e) {
-    mainController.getChartController().setDrawingMode(ChartController.ROUTE);
+    interactionManager.clickDrawButton();
   }
 
   @FXML
